@@ -1,6 +1,7 @@
 import { HokyFeedMaker } from './HokyFeedMaker';
 import { HokyItemParserImpl } from './HokyItemParserImpl';
 import { SimpleHttpFetcher } from './SimpleUrlFetcher';
+import express from 'express';
 
 export class HokyLandRssFeeder {
   public async main(): Promise<void> {
@@ -9,6 +10,26 @@ export class HokyLandRssFeeder {
     const contents = await new SimpleHttpFetcher().fetch(url);
     const items = new HokyItemParserImpl().parse(contents);
     const feed = new HokyFeedMaker().makeFeed(items);
-    console.log(feed.rss2());
+
+    const app = express();
+    const port = 3000;
+
+    app.get('/', (req, res) => {
+      res.send('Hello World!');
+    });
+
+    app.get('/rss', (req, res) => {
+      res.setHeader('Content-Type', 'text/xml');
+      res.send(feed.rss2());
+    });
+
+    app.get('/atom', (req, res) => {
+      res.setHeader('Content-Type', 'text/xml');
+      res.send(feed.atom1());
+    });
+
+    app.listen(port, () => {
+      console.log(`Example app listening at http://localhost:${port}`);
+    });
   }
 }
