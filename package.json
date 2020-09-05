@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/eruhoon/hokyland-rss-feeder/issues"
   },
-  "homepage": "https://github.com/eruhoon/hokyland-rss-feeder#readme"
+  "homepage": "https://github.com/eruhoon/hokyland-rss-feeder#readme",
+  "dependencies": {
+    "@types/cheerio": "^0.22.21",
+    "@types/iconv-lite": "0.0.1",
+    "axios": "^0.20.0",
+    "cheerio": "^1.0.0-rc.3",
+    "iconv-lite": "^0.6.2"
+  },
+  "devDependencies": {}
 }
