@@ -1,9 +1,10 @@
 import express from 'express';
-import { HokyPublisher } from './models/publish/HokyPublisher';
+import { HokyPublishDaemon } from './models/publish/HokyPublishDaemon';
 
 export class HokyLandRssFeeder {
   public async main(): Promise<void> {
-    const feed = await new HokyPublisher().publish();
+    const daemon = new HokyPublishDaemon();
+    daemon.start();
     const app = express();
     const port = 3000;
 
@@ -13,12 +14,12 @@ export class HokyLandRssFeeder {
 
     app.get('/rss', (req, res) => {
       res.setHeader('Content-Type', 'text/xml');
-      res.send(feed.rss2());
+      res.send(daemon.getFeed().rss2());
     });
 
     app.get('/atom', (req, res) => {
       res.setHeader('Content-Type', 'text/xml');
-      res.send(feed.atom1());
+      res.send(daemon.getFeed().atom1());
     });
 
     app.listen(port, () => {

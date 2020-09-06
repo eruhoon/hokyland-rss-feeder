@@ -1,10 +1,11 @@
 import { Feed } from 'feed';
-import { HokyItem } from '../common/HokyItem';
+import { HokyFeedItem } from '../publish/HokyFeedItem';
 
 export class HokyFeedMaker {
-  public makeFeed(items: HokyItem[]): Feed {
+  public makeFeed(feedItems: HokyFeedItem[]): Feed {
     const feed = this.makeMainFeed();
-    items.forEach((item) => {
+    feedItems.forEach((feedItem) => {
+      const item = feedItem.getItem();
       feed.addItem({
         title: item.title,
         id: item.link,
