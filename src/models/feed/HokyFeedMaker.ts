@@ -1,5 +1,5 @@
 import { Feed } from 'feed';
-import { HokyItem } from './HokyItem';
+import { HokyItem } from '../common/HokyItem';
 
 export class HokyFeedMaker {
   public makeFeed(items: HokyItem[]): Feed {

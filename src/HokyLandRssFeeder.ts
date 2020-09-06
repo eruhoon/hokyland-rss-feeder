@@ -1,6 +1,6 @@
-import { HokyFeedMaker } from './HokyFeedMaker';
-import { HokyItemParserImpl } from './HokyItemParserImpl';
-import { SimpleHttpFetcher } from './SimpleUrlFetcher';
+import { HokyFeedMaker } from './models/feed/HokyFeedMaker';
+import { HokyItemParserImpl } from './models/parse/HokyItemParserImpl';
+import { SimpleHttpFetcher } from './models/fetch/SimpleUrlFetcher';
 import express from 'express';
 
 export class HokyLandRssFeeder {

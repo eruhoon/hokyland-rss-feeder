@@ -1,5 +1,5 @@
 import { HokyItemParser } from './HokyItemParser';
-import { HokyItem } from './HokyItem';
+import { HokyItem } from '../common/HokyItem';
 import cheerio from 'cheerio';
 
 export class HokyItemParserImpl implements HokyItemParser {
