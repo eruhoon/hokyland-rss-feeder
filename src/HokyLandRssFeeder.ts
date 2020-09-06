@@ -6,7 +6,7 @@ export class HokyLandRssFeeder {
     const daemon = new HokyPublishDaemon();
     daemon.start();
     const app = express();
-    const port = 3000;
+    const port = 11001;
 
     app.get('/rss', (req, res) => {
       res.setHeader('Content-Type', 'text/xml');
