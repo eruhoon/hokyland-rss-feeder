@@ -6,6 +6,7 @@ export class HokyFeedMaker {
     const feed = this.makeMainFeed();
     feedItems.forEach((feedItem) => {
       const item = feedItem.getItem();
+      const date = new Date(feedItem.getPublish());
       feed.addItem({
         title: item.title,
         id: item.link,
@@ -15,18 +16,18 @@ export class HokyFeedMaker {
         author: [
           {
             name: 'eruhoon',
-            email: 'eruhoon@gmail.copm',
+            email: 'eruhoon@gmail.com',
             link: 'https://github.com/eruhoon/hokyland-rss-feeder',
           },
         ],
         contributor: [
           {
             name: 'eruhoon',
-            email: 'eruhoon@gmail.copm',
+            email: 'eruhoon@gmail.com',
             link: 'https://github.com/eruhoon/hokyland-rss-feeder',
           },
         ],
-        date: new Date(),
+        date: date,
         image: item.icon,
       });
     });
@@ -35,14 +36,13 @@ export class HokyFeedMaker {
 
   private makeMainFeed(): Feed {
     const feed = new Feed({
-      title: 'Feed Title',
-      description: 'This is my personal feed!',
-      id: 'http://example.com/',
-      link: 'http://example.com/',
+      title: 'HokyLand Feed',
+      description: 'the feed for subscribing hokyland',
+      id: 'https://github.com/eruhoon/hokyland-rss-feeder',
+      link: 'http://hoky.co.kr/',
       language: 'ko',
-      image: 'http://example.com/image.png',
-      favicon: 'http://example.com/favicon.ico',
-      copyright: 'eruhoon',
+      image: 'http://www.hoky.co.kr/images/etc/%EC%B2%AB%EB%B2%88%EC%A7%B8.jpg',
+      copyright: 'none',
       generator: 'eruhoon', // optional, default = 'Feed for Node.js'
       feedLinks: {
         json: 'https://example.com/json',
