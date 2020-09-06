@@ -44,10 +44,6 @@ export class HokyFeedMaker {
       image: 'http://www.hoky.co.kr/images/etc/%EC%B2%AB%EB%B2%88%EC%A7%B8.jpg',
       copyright: 'none',
       generator: 'eruhoon', // optional, default = 'Feed for Node.js'
-      feedLinks: {
-        json: 'https://example.com/json',
-        atom: 'https://example.com/atom',
-      },
       author: {
         name: 'eruhoon',
         email: 'eruhoon@gmail.com',
