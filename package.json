@@ -57,13 +57,13 @@
   },
   "devDependencies": {
     "@size-limit/preset-small-lib": "^5.0.1",
+    "@types/cheerio": "^0.22.21",
+    "@types/express": "^4.17.8",
+    "@types/iconv-lite": "0.0.1",
     "husky": "^7.0.1",
     "size-limit": "^5.0.1",
     "tsdx": "^0.14.1",
     "tslib": "^2.3.0",
-    "typescript": "^3.9.10",
-    "@types/cheerio": "^0.22.21",
-    "@types/iconv-lite": "0.0.1",
-    "@types/express": "^4.17.8"
+    "typescript": "^3.9.10"
   }
 }
