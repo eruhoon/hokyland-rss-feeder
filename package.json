@@ -1,25 +1,54 @@
 {
   "name": "hokyland-rss-feeder",
   "version": "1.0.0",
-  "description": "hokyland-rss-feeder",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why",
     "pm2": "sudo pm2 start dist/index.js --name hokyland-rss-feeder"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/eruhoon/hokyland-rss-feeder.git"
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Whimsicott",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/eruhoon/hokyland-rss-feeder/issues"
   },
   "homepage": "https://github.com/eruhoon/hokyland-rss-feeder#readme",
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "module": "dist/hokyland-rss-feeder2.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/hokyland-rss-feeder2.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/hokyland-rss-feeder2.esm.js",
+      "limit": "10 KB"
+    }
+  ],
   "dependencies": {
-    "@types/cheerio": "^0.22.21",
-    "@types/iconv-lite": "0.0.1",
     "axios": "^0.21.1",
     "cheerio": "^1.0.0-rc.3",
     "express": "^4.17.1",
@@ -27,6 +56,14 @@
     "iconv-lite": "^0.6.2"
   },
   "devDependencies": {
+    "@size-limit/preset-small-lib": "^5.0.1",
+    "husky": "^7.0.1",
+    "size-limit": "^5.0.1",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.3.0",
+    "typescript": "^3.9.10",
+    "@types/cheerio": "^0.22.21",
+    "@types/iconv-lite": "0.0.1",
     "@types/express": "^4.17.8"
   }
 }

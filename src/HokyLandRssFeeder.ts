@@ -8,12 +8,12 @@ export class HokyLandRssFeeder {
     const app = express();
     const port = 11001;
 
-    app.get('/rss', (req, res) => {
+    app.get('/rss', (_, res) => {
       res.setHeader('Content-Type', 'text/xml');
       res.send(daemon.getFeed().rss2());
     });
 
-    app.get('/atom', (req, res) => {
+    app.get('/atom', (_, res) => {
       res.setHeader('Content-Type', 'text/xml');
       res.send(daemon.getFeed().atom1());
     });

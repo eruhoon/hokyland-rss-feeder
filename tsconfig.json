@@ -1,17 +1,23 @@
 {
+  // see https://www.typescriptlang.org/tsconfig to better understand tsconfigs
+  "include": ["src", "types"],
   "compilerOptions": {
-    /* Visit https://aka.ms/tsconfig.json to read more about this file */
-    "target": "ES2020",
-    "module": "CommonJS",
-    "outDir": "./dist",
+    "module": "esnext",
+    "lib": ["dom", "esnext"],
+    "importHelpers": true,
+    "declaration": true,
+    "sourceMap": true,
     "rootDir": "./src",
     "strict": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "strictFunctionTypes": true,
-    "rootDirs": [],
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "moduleResolution": "node",
+    "jsx": "react",
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true
   }
 }
