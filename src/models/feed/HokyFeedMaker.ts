@@ -4,7 +4,7 @@ import { HokyFeedItem } from '../publish/HokyFeedItem';
 export class HokyFeedMaker {
   public makeFeed(feedItems: HokyFeedItem[]): Feed {
     const feed = this.makeMainFeed();
-    feedItems.forEach((feedItem) => {
+    feedItems.forEach(feedItem => {
       const item = feedItem.getItem();
       const date = new Date(feedItem.getPublish());
       feed.addItem({

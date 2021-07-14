@@ -12,10 +12,10 @@ export class HokyItemParserImpl implements HokyItemParser {
     const host = 'http://hoky.co.kr';
     return $titleTable
       .toArray()
-      .map((e) => $(e))
-      .map(($e) => $e.parent().parent())
-      .filter(($e) => $e.text().trim().length > 0)
-      .map(($e) => {
+      .map(e => $(e))
+      .map($e => $e.parent().parent())
+      .filter($e => $e.text().trim().length > 0)
+      .map($e => {
         const $title = $e.find('a');
         const title = $title.text();
         const link = `${host}/template/1/${$title.attr('href')}`;

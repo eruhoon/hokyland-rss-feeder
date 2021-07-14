@@ -53,14 +53,14 @@ export class HokyPublishDaemon implements Daemon {
 
   private async updateItems(): Promise<void> {
     const items = await this.fetchItems();
-    const filtered = this.mFeedItems.filter((feedItem) =>
-      items.some((item) => feedItem.equalsToItem(item))
+    const filtered = this.mFeedItems.filter(feedItem =>
+      items.some(item => feedItem.equalsToItem(item))
     );
     const toAdd = items
-      .filter((item) =>
-        this.mFeedItems.every((feedItem) => !feedItem.equalsToItem(item))
+      .filter(item =>
+        this.mFeedItems.every(feedItem => !feedItem.equalsToItem(item))
       )
-      .map((item) => new HokyFeedItem(item));
+      .map(item => new HokyFeedItem(item));
     this.mFeedItems = filtered.concat(toAdd);
   }
 
