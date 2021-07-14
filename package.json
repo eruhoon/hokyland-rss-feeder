@@ -37,14 +37,14 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "module": "dist/hokyland-rss-feeder2.esm.js",
+  "module": "dist/hokyland-rss-feeder.esm.js",
   "size-limit": [
     {
-      "path": "dist/hokyland-rss-feeder2.cjs.production.min.js",
+      "path": "dist/hokyland-rss-feeder.cjs.production.min.js",
       "limit": "10 KB"
     },
     {
-      "path": "dist/hokyland-rss-feeder2.esm.js",
+      "path": "dist/hokyland-rss-feeder.esm.js",
       "limit": "10 KB"
     }
   ],
