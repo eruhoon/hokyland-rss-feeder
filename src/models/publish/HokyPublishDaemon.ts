@@ -65,8 +65,7 @@ export class HokyPublishDaemon implements Daemon {
   }
 
   private async fetchItems(): Promise<HokyItem[]> {
-    const url =
-      'http://hoky.co.kr/template/1/categ_list.asp?categ_code=97&page=1&cv=6&orderOPT=0&pagesize=100';
+    const url = 'https://hoky.co.kr/product/list.html?cate_no=68';
     const body = await this.mFetcher.fetch(url);
     const items = this.mParser.parse(body);
     return items;

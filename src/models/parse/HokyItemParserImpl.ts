@@ -7,23 +7,29 @@ export class HokyItemParserImpl implements HokyItemParser {
     const $ = cheerio.load(body, {
       normalizeWhitespace: true,
     });
-    const $titleTable = $('table[cellpadding=5][width=70]');
-    console.log($titleTable.length);
-    const host = 'http://hoky.co.kr';
-    return $titleTable
+    const $items = $('ul.prdList>li');
+    console.log($items.length);
+    const host = 'https://hoky.co.kr';
+    return $items
       .toArray()
       .map(e => $(e))
-      .map($e => $e.parent().parent())
-      .filter($e => $e.text().trim().length > 0)
       .map($e => {
-        const $title = $e.find('a');
-        const title = $title.text();
-        const link = `${host}/template/1/${$title.attr('href')}`;
-        const $image = $e.find('img');
+        const $anchor = $e.find('.prdImg a');
+        const $description = $e.find('.description');
+
+        const $image = $anchor.find('img').eq(0);
         const iconSrc = $image.attr('src');
-        const icon = `${host}${iconSrc}`;
-        const $price = $e.find('div[align=center] font[color=#FF0000]');
-        const price = $price.text();
+        const icon = `https:${iconSrc}`;
+        const title = $image.attr('alt');
+        const link = `${host}${$anchor.attr('href')}`;
+
+        const price = $description.attr('ec-data-price');
+        console.log({
+          title,
+          link,
+          icon,
+          price,
+        });
         return {
           title,
           link,
