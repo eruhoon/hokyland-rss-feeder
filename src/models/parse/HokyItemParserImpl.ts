@@ -23,7 +23,7 @@ export class HokyItemParserImpl implements HokyItemParser {
         const title = $image.attr('alt');
         const link = `${host}${$anchor.attr('href')}`;
 
-        const price = $description.attr('ec-data-price');
+        const price = $description.attr('ec-data-price') + '원';
         console.log({
           title,
           link,
